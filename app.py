@@ -13,13 +13,26 @@ worker_id = "5" #id radnika je od 2 pa do 26 - stim što može da se dodaje borj
 # new_record = [end_date_time.strftime("%d/%m/%Y %H:%M"), id, rn, quantity, None]
 new_record = Actions()
 pprint(vars(new_record))
+
 new_record.extrudion(end_date_time, id, rn, quantity, worker_id)
-pprint(vars(new_record))
+# pprint(vars(new_record))
 
-new_record.cleaning(end_date_time, id, rn, worker_id)
-pprint(vars(new_record))
-
-# kod koji će svai atribut da stavlja u posebnu kolonu u csv fajlu
+print(new_record.end_date_time)
 print(new_record.id)
 print(new_record.rn)
 print(new_record.activity)
+print(new_record.quantity)
+print(new_record.equipment)
+print(new_record.worker_id)
+
+new_record.cleaning(end_date_time, id, rn, worker_id)
+# pprint(vars(new_record))
+
+# kod koji će svai atribut da stavlja u posebnu kolonu u csv fajlu
+print(new_record.end_date_time)
+print(new_record.id)
+print(new_record.rn)
+print(new_record.quantity)
+print(new_record.equipment)
+print(new_record.activity)
+print(new_record.worker_id)

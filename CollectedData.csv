@@ -1,8 +1,6 @@
-﻿end time,ID,RN,Aktivnost,Količina,oprema,radnikID
-end time,ID,RN,Aktivnost,Količina,oprema,radnikID
-end time,ID,RN,Aktivnost,Količina,oprema,radnikID
-end time,ID,RN,Aktivnost,Količina,oprema,radnikID
-end time,ID,RN,Aktivnost,Količina,oprema,radnikID
-end time,ID,RN,Aktivnost,Količina,oprema,radnikID
-end time,ID,RN,Aktivnost,Količina,oprema,radnikID
-end time,ID,RN,Aktivnost,Količina,oprema,radnikID
+﻿end_time,ID,RN,Količina,oprema,Aktivnost,radnikID
+end_time,ID,RN,Količina,oprema,Aktivnost,radnikID
+end_time,ID,RN,Količina,oprema,Aktivnost,radnikID
+end_time,ID,RN,Količina,oprema,Aktivnost,radnikID
+end_time,ID,RN,Količina,oprema,Aktivnost,radnikID
+end_time,ID,RN,Količina,oprema,Aktivnost,radnikID
