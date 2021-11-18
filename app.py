@@ -19,5 +19,7 @@ pprint(vars(new_record))
 new_record.cleaning(end_date_time, id, rn, worker_id)
 pprint(vars(new_record))
 
-
 # kod koji će svai atribut da stavlja u posebnu kolonu u csv fajlu
+print(new_record.id)
+print(new_record.rn)
+print(new_record.activity)
