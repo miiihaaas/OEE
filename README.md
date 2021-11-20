@@ -1,7 +1,7 @@
 # OEE
 Overall Efficiency of Equipment
 
-# izgled aplikacije
+## izgled aplikacije
 1 = ekstrudiranje
     11 = ZSK43
         110 = ekstrudiranje
@@ -45,7 +45,7 @@ Overall Efficiency of Equipment
       226 = pražnjenje filtera
       227 = nema operatera
 
-# aktivirano dugme (npr: 112 = čišćenje radnog mesta) treba da vrati listu sa svim promenjivim
-# u app fajlu treba da se dodeli ta lista new_record koja se dalje append u csv fajl
+## aktivirano dugme (npr: 112 = čišćenje radnog mesta) treba da vrati listu sa svim promenjivim
+## u app fajlu treba da se dodeli ta lista new_record koja se dalje append u csv fajl
 
-# input podataka se vrši preko QR koda (pokušaj u fajlu actions.py)
+## input podataka se vrši preko QR koda (pokušaj u fajlu actions.py)
