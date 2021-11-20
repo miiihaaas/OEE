@@ -26,7 +26,7 @@ rn = "1903425"
 #                       "čekanje probe sa mlina", "kontrola", "kvar", "nema premiksa",
 #                       "zagrebanje", "nema operatera"
 activity = "ekstrudiranje" # ovo treba da je promenjiva koja se sama menja na osnovu odabrane aktivnosti
-quantity = 755
+quantity = 520
 equipment = "ZSK43" #treba da je dinaično na osnovu odabrane opreme
 worker_id = "5" #id radnika je od 2 pa do 26 - stim što može da se dodaje borj kako se budu zapošljavali novi radnici
 
