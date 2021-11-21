@@ -24,7 +24,7 @@ menu_tree = {1: "ekstrudiranje",
             125: "kvar",
             126: "nema premiksa",
             127: "nema konejnera za čips",
-            28: "zagrevanje",
+            128: "zagrevanje",
             129: "nema operatera",
             2: "mlevenje",
             21: "ACM20",
@@ -76,14 +76,14 @@ while True:
     if choose == "21":
         print("2 = mlevenje")
         print(" 21 = ACM20")
-        for i in range (210,220):
+        for i in range (210,218):
             print(f"     {i} = {menu_tree[i]}")
             i += 1
         choose = input(f"Izabei aktivnost: ")
     if choose == "22":
         print("2 = mlevenje")
-        print(" 22 = ACM20")
-        for i in range (220,230):
+        print(" 22 = ACM30")
+        for i in range (220,228):
             print(f"     {i} = {menu_tree[i]}")
             i += 1
         choose = input(f"Izabei aktivnost: ")
