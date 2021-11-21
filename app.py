@@ -47,7 +47,6 @@ menu_tree = {1: "ekstrudiranje",
             227: "nema operatera"
       }
 
-pprint(menu_tree)
 print("1 = ekstrudiranje")
 print("2 = mlevenje")
 choose = input(f"Izabei zonu: ")
@@ -59,30 +58,15 @@ if choose == "1":
 if choose == "11":
     print("1 = ekstrudiranje")
     print(" 11 = ZSK43")
-    print("     110 = ekstrudiranje")
-    print("     111 = čišćenje")
-    print("     112 = čišćenje radnog mesta")
-    print("     113 = čekanje probe sa mlina")
-    print("     114 = kontrola")
-    print("     115 = kvar")
-    print("     116 = nema premiksa")
-    print("     117 = nema konejnera za čips")
-    print("     118 = zagrevanje")
-    print("     119 = nema operatera")
+    for i in range (110,120):
+        print(f"     {i} = {menu_tree[i]}")
+        i += 1
     choose = input(f"Izabei aktivnost: ")
 if choose == "12":
     print("1 = ekstrudiranje")
-    print(" 12 = APV")
-    print("     120 = ekstrudiranje")
-    print("     121 = čišćenje")
-    print("     122 = čišćenje radnog mesta")
-    print("     123 = čekanje probe sa mlina")
-    print("     124 = kontrola")
-    print("     125 = kvar")
-    print("     126 = nema premiksa")
-    print("     127 = nema konejnera za čips")
-    print("     128 = zagrevanje")
-    print("     129 = nema operatera")
+    for i in range (120,130):
+        print(f"     {i} = {menu_tree[i]}")
+        i += 1
     choose = input(f"Izabei aktivnost: ")
 if choose == "2":
     print("2 = mlevenje")
@@ -92,26 +76,16 @@ if choose == "2":
 if choose == "21":
     print("2 = mlevenje")
     print(" 21 = ACM20")
-    print("     210 = mlevenje")
-    print("     211 = čišćenje")
-    print("     212 = čišćenje radnog mesta")
-    print("     213 = kontrola")
-    print("     214 = kvar")
-    print("     215 = nema čipsa")
-    print("     216 = pražnjenje filtera")
-    print("     217 = nema operatera")
+    for i in range (210,220):
+        print(f"     {i} = {menu_tree[i]}")
+        i += 1
     choose = input(f"Izabei aktivnost: ")
 if choose == "22":
     print("2 = mlevenje")
     print(" 22 = ACM20")
-    print("     220 = mlevenje")
-    print("     221 = čišćenje")
-    print("     222 = čišćenje radnog mesta")
-    print("     223 = kontrola")
-    print("     224 = kvar")
-    print("     225 = nema čipsa")
-    print("     226 = pražnjenje filtera")
-    print("     227 = nema operatera")
+    for i in range (220,230):
+        print(f"     {i} = {menu_tree[i]}")
+        i += 1
     choose = input(f"Izabei aktivnost: ")
 
 
@@ -130,7 +104,7 @@ elif choose[:2] == "22":
 
 file_name = f"{equipment}.csv"
 print(equipment)
-print(file_name)
+print(menu_tree[int(choose)])
 
 id_ = input("unesi ID materijala: ")
 rn = input("unesi broj RN: ")
@@ -153,23 +127,14 @@ worker_id = input("unesi ID operatera: ")
 
 
 # definisane variable sa defoult vrednostima 0
-file_path = "D:\Mihas\Programming\Python\Projects\OEE\OEE\\"
-file_name = "CollectedData.csv"
+file_path = "D:\Mihas\Programming\Python\Projects\OEE\OEE\CollectedData\\"
+#file_name = "CollectedData.csv"
 
 
 end_date_time = datetime.datetime.now()
 #pretvara ga u string koji excel može da poročita kao datum vreme
 end_date_time = end_date_time.strftime("%x %X")
 
-
-
-
-#hardkord inputi, treba napraviti funkcije za imput od strane operatera: QR kod, brojevi itd
-
-# moguće aktivnosti:    "ekstrudiranje", "čišćenje opreme", "čišćenje radnog mesta",
-#                       "čekanje probe sa mlina", "kontrola", "kvar", "nema premiksa",
-#                       "zagrebanje", "nema operatera"
-# activity = "čišćenje radnog mesta" # ovo treba da je promenjiva koja se sama menja na osnovu odabrane aktivnosti
 
 new_record = [end_date_time, id_, rn, quantity, equipment, activity, worker_id]
 print(new_record)
