@@ -1,52 +1,10 @@
 import datetime
 import csv
 from pprint import pprint
+from objects import menu_tree, breakdown_tree
 
-# Menu tree
-menu_tree = {1: "ekstrudiranje",
-            11: "ZSK43",
-            110: "ekstrudiranje",
-            111: "čišćenje",
-            112: "čišćenje radnog mesta",
-            113: "čekanje probe sa mlina",
-            114: "kontrola",
-            115: "kvar",
-            116: "nema premiksa",
-            117: "nema konejnera za čips",
-            118: "zagrevanje",
-            119: "nema operatera",
-            12: "APV",
-            120: "ekstrudiranje",
-            121: "čišćenje",
-            122: "čišćenje radnog mesta",
-            123: "čekanje probe sa mlina",
-            124: "kontrola",
-            125: "kvar",
-            126: "nema premiksa",
-            127: "nema konejnera za čips",
-            128: "zagrevanje",
-            129: "nema operatera",
-            2: "mlevenje",
-            21: "ACM20",
-            210: "mlevenje",
-            211: "čišćenje",
-            212: "čišćenje radnog mesta",
-            213: "kontrola",
-            214: "kvar",
-            215: "nema čipsa",
-            216: "pražnjenje filtera",
-            217: "nema operatera",
-            22: "ACM30",
-            220: "mlevenje",
-            221: "čišćenje",
-            222: "čišćenje radnog mesta",
-            223: "kontrola",
-            224: "kvar",
-            225: "nema čipsa",
-            226: "pražnjenje filtera",
-            227: "nema operatera"
-      }
 while True:
+    #input meni za terminal - naslediće ga kiwy
     print("1 = ekstrudiranje")
     print("2 = mlevenje")
     choose = input(f"Izabei zonu: ")
@@ -97,14 +55,8 @@ while True:
     quantity = 0
 
     # bira opremu na osnovu odabrane aktivnosti
-    if choose[:2] == "11":
-        equipment = "ZSK43"
-    elif choose[:2] == "12":
-        equipment = "APV"
-    elif choose[:2] == "21":
-        equipment = "ACM20"
-    elif choose[:2] == "22":
-        equipment = "ACM30"
+    if choose[:2] in ("11", "12", "21", "22"):
+        equipment = menu_tree[int(choose[:2])]
 
     # definiše ime fajla
     file_name = f"{equipment}.csv"
