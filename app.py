@@ -1,53 +1,57 @@
 import datetime
 import csv
-from pprint import pprint
 from objects import menu_tree, breakdown_tree
+from kivy_menu import MyGrid
+
 
 while True:
     #input meni za terminal - naslediće ga kiwy
-    print("1 = ekstrudiranje")
-    print("2 = mlevenje")
-    choose = input(f"Izabei zonu: ")
-    if choose == "1":
-        print("1 = ekstrudiranje")
-        print(" 11 = ZSK43")
-        print(" 12 = APV")
-        choose = input(f"Izabei ekstruder: ")
-    if choose == "11":
-        print("1 = ekstrudiranje")
-        print(" 11 = ZSK43")
-        for i in range (110,120):
-            print(f"     {i} = {menu_tree[i]}")
-            i += 1
-        choose = input(f"Izabei aktivnost: ")
-    if choose == "12":
-        print("1 = ekstrudiranje")
-        for i in range (120,130):
-            print(f"     {i} = {menu_tree[i]}")
-            i += 1
-        choose = input(f"Izabei aktivnost: ")
-    if choose == "2":
-        print("2 = mlevenje")
-        print(" 21 = ACM20")
-        print(" 22 = ACM30")
-        choose = input(f"Izabei mlin: ")
-    if choose == "21":
-        print("2 = mlevenje")
-        print(" 21 = ACM20")
-        for i in range (210,218):
-            print(f"     {i} = {menu_tree[i]}")
-            i += 1
-        choose = input(f"Izabei aktivnost: ")
-    if choose == "22":
-        print("2 = mlevenje")
-        print(" 22 = ACM30")
-        for i in range (220,228):
-            print(f"     {i} = {menu_tree[i]}")
-            i += 1
-        choose = input(f"Izabei aktivnost: ")
+    choose = MyGrid().choose
+    print(choose)
 
-    if int(choose) < 1:
-        break
+    # print("1 = ekstrudiranje")
+    # print("2 = mlevenje")
+    # choose = input(f"Izabei zonu: ")
+    # if choose == "1":
+    #     print("1 = ekstrudiranje")
+    #     print(" 11 = ZSK43")
+    #     print(" 12 = APV")
+    #     choose = input(f"Izabei ekstruder: ")
+    # if choose == "11":
+    #     print("1 = ekstrudiranje")
+    #     print(" 11 = ZSK43")
+    #     for i in range (110,120):
+    #         print(f"     {i} = {menu_tree[i]}")
+    #         i += 1
+    #     choose = input(f"Izabei aktivnost: ")
+    # if choose == "12":
+    #     print("1 = ekstrudiranje")
+    #     for i in range (120,130):
+    #         print(f"     {i} = {menu_tree[i]}")
+    #         i += 1
+    #     choose = input(f"Izabei aktivnost: ")
+    # if choose == "2":
+    #     print("2 = mlevenje")
+    #     print(" 21 = ACM20")
+    #     print(" 22 = ACM30")
+    #     choose = input(f"Izabei mlin: ")
+    # if choose == "21":
+    #     print("2 = mlevenje")
+    #     print(" 21 = ACM20")
+    #     for i in range (210,218):
+    #         print(f"     {i} = {menu_tree[i]}")
+    #         i += 1
+    #     choose = input(f"Izabei aktivnost: ")
+    # if choose == "22":
+    #     print("2 = mlevenje")
+    #     print(" 22 = ACM30")
+    #     for i in range (220,228):
+    #         print(f"     {i} = {menu_tree[i]}")
+    #         i += 1
+    #     choose = input(f"Izabei aktivnost: ")
+    #
+    # if int(choose) < 1:
+        # break
 
     file_path = "D:\Mihas\Programming\Python\Projects\OEE\OEE\CollectedData\\"
 

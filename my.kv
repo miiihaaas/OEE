@@ -1,0 +1,784 @@
+WindowManager:
+    MainWindow:
+    SarziranjeWindow:
+    EkstrudiranjeWindow:
+    EkstruderAktivnostiWindow:
+    AktivnostEktrurdiranjeWindow:
+    AktivnostCiscenjeWindow:
+    AktivnostCiscenjeRadnogMestaWindow:
+    AktivnostCekanjeProbeSaMlinaWindow:
+    AktivnostKontrolaWindow:
+    AktivnostKvarWindow:
+    AktivnostNemaPremiksaWindow:
+    AktivnostZagrevanjeWindow:
+    AktivnostNemaOperateraWindow:
+    MlevenjeWindow:
+    MlinAktivnostiWindow:
+
+<MainWindow>:
+    name: "main"
+
+    GridLayout:
+        cols: 1
+        # size: root.width * 0.7, root.height * 0.8
+        # center: root.width / 2, root.height / 2
+
+        Label:
+            text: 'Izaberi Zonu:'
+
+        Button:
+            text: "Zona Šaržiranja"
+            on_release:
+                app.root.current = "sarziranje"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Zona Ekstrudirana"
+            on_release:
+                app.root.current = "ekstrudiranje"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Zona Mlevenja"
+            on_release:
+                app.root.current = "mlevenje"
+                root.manager.transition.direction = "left"
+###############
+
+<SarziranjeWindow>:
+    name: "sarziranje"
+    GridLayout:
+        cols: 1
+
+        Label:
+            text: 'Zona Šaržiranja :'
+
+        Button:
+            text: "Nazad Na Glavni Meni"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+<EkstrudiranjeWindow>:
+    equipment: equipment
+    name: "ekstrudiranje"
+    GridLayout:
+        cols: 1
+
+        Label:
+            text: 'Zona Ekstrudiranja: '
+
+        Button:
+            id: equipment
+            text: "ZSK43"
+            background_normal: ''
+            background_color: 1, 0, 0, .5
+            on_release:
+                root.equipment = "ZSK43"
+                app.root.current = "aktivnostiEkstruder"
+                root.manager.transition.direction = "left"
+                root.btn_eqpmnt_press()
+
+
+        Button:
+            id: equipment
+            text: "APV"
+            background_normal: ''
+            background_color: 1, 1, 0, .5
+            on_release:
+                app.root.current = "aktivnostiEkstruder"
+                root.manager.transition.direction = "left"
+                root.equipment = "APV"
+                root.btn_eqpmnt_press()
+
+
+        Button:
+            text: "Nazad Na Glavni Meni"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+<MlevenjeWindow>:
+    equipment: equipment
+    name: "mlevenje"
+    GridLayout:
+        cols: 1
+
+        Label:
+            text: 'Zona Mlevenja :'
+
+        Button:
+            id: equipment
+            text: "ACM20"
+            background_normal: ''
+            background_color: 0, 0, 1, .5
+            on_release:
+                app.root.current = "aktivnostiMlin"
+                root.equipment = "ACM20"
+                root.manager.transition.direction = "left"
+                root.btn_press()
+
+        Button:
+            id: equipment
+            text: "ACM30"
+            background_normal: ''
+            background_color: 0, 1, 0, .5
+            on_release:
+                app.root.current = "aktivnostiMlin"
+                root.equipment = "ACM30"
+                root.manager.transition.direction = "left"
+                root.btn_press()
+
+        Button:
+            text: "Nazad Na Glavni Meni"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+################
+################
+
+
+<EkstruderAktivnostiWindow>:
+    name: "aktivnostiEkstruder"
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Aktivnost Na" + " Ekstruderu: "
+
+        Button:
+            text: "Ekstrudiranje"
+            on_release:
+                app.root.current = "AktivnostEktrurdiranjeWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Ekstrudiranje"
+                root.btn_activity_press()
+
+
+        Button:
+            text: "Čišćenje"
+            on_release:
+                app.root.current = "AktivnostCiscenjeWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Čišćenje"
+                root.btn_activity_press()
+
+        Button:
+            text: "Čišćenje Radnog Mesta"
+            on_release:
+                app.root.current = "AktivnostCiscenjeRadnogMestaWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Čišćenje Radnog Mesta"
+                root.btn_activity_press()
+        Button:
+            text: "Čekanje Probe Sa Mlina"
+            on_release:
+                app.root.current = "AktivnostCekanjeProbeSaMlinaWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Čekanje Probe Sa Mlina"
+                root.btn_activity_press()
+
+        Button:
+            text: "Kontrola"
+            on_release:
+                app.root.current = "AktivnostKontrolaWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Kontrola"
+                root.btn_activity_press()
+
+        Button:
+            text: "Kvar"
+            on_release:
+                app.root.current = "AktivnostKvarWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Kvar"
+                root.btn_activity_press()
+
+        Button:
+            text: "Nema Premiksa"
+            on_release:
+                app.root.current = "AktivnostNemaPremiksaWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Nema Premiksa"
+                root.btn_activity_press()
+        Button:
+            text: "Zagrevanje"
+            on_release:
+                app.root.current = "AktivnostZagrevanjeWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Zagrevanje"
+                root.btn_activity_press()
+        Button:
+            text: "Nema Operatera"
+            on_release:
+                app.root.current = "AktivnostNemaOperateraWindow"
+                root.manager.transition.direction = "left"
+                root.activity = "Nema Operatera"
+                root.btn_activity_press()
+        GridLayout:
+            cols: 2
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+
+
+<MlinAktivnostiWindow>:
+    name: "aktivnostiMlin"
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Aktivnost Na Mlinu: "
+
+        Button:
+            text: "Nazad Na Glavni Meni"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right" #nastavi kod
+################
+################
+################
+
+
+<AktivnostEktrurdiranjeWindow>:
+    id_: id_
+    rn: rn
+    quantity: quantity
+    worker_id: worker_id
+    name: "AktivnostEktrurdiranjeWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Ektrurdiranje"
+        Label:
+            text: "napisati kod koji će da pokaže datum i vreme"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "napraviti QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "napraviti QR code scanner"
+            Label:
+                text: "Ekstrudirana Količina: "
+            TextInput:
+                id: quantity
+
+
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostCiscenjeWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostCiscenjeWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Čišćenje"
+        Label:
+            text: "napisati kod koji će da pokaže datum i vreme"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostCiscenjeRadnogMestaWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostCiscenjeRadnogMestaWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Čišćenje Radnog Mesta"
+        Label:
+            text: "napisati kod koji će da pokaže datum i vreme"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "napraviti QR code scanner"
+            Label:
+                id: rn
+                text: "RN: "
+            TextInput:
+                text: "napraviti QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostCekanjeProbeSaMlinaWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostCekanjeProbeSaMlinaWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Čekanje Probe Sa Mlina"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostKontrolaWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostKontrolaWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Kontrola"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostKvarWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostKvarWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Kvar"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostNemaPremiksaWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostNemaPremiksaWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Nema Premiksa"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostZagrevanjeWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostZagrevanjeWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Zagrevanje"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+
+
+<AktivnostNemaOperateraWindow>:
+    id_: id_
+    rn: rn
+    worker_id: worker_id
+    name: "AktivnostNemaOperateraWindow"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Nema Operatera"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "ID: "
+            TextInput:
+                id: id_
+                text: "QR code scanner"
+            Label:
+                text: "RN: "
+            TextInput:
+                id: rn
+                text: "QR code scanner"
+            Label:
+                text: "ID radnika: "
+            TextInput:
+                id: worker_id
+        Button:
+            text: "Potvrdi"
+            on_release:
+                root.btn_press()
+        GridLayout:
+            cols: 3
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Odabir Aktivnosti Ekstrudera"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "aktivnostiEkstruder"
+                    root.manager.transition.direction = "right"
+################
