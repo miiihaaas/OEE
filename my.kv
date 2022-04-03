@@ -3,6 +3,7 @@ WindowManager:
     SarziranjeWindow:
     EkstrudiranjeWindow:
     EkstruderAktivnostiWindow:
+    EkstruderParametersWindow:
     AktivnostEktrurdiranjeWindow:
     AktivnostKvarWindow:
     MlevenjeWindow:
@@ -78,7 +79,20 @@ WindowManager:
 
         Label:
             text: 'Zona Ekstrudiranja: '
-
+        # dodati dugme "Parametri na Ekstruderu"
+        # dodati dugme "Parametri na Ekstruderu"
+        Button:
+            font_size: 35
+            bold: True
+            text: "Parametri na Ekstruderu"
+            text_size: self.size
+            halign: 'center'
+            valign: 'center'
+            background_normal: ''
+            background_color: 1, 1, 1, .7 # napraviti da bude siva boja
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "ekstruderParameters"
         Button:
             id: equipment
             font_size: 35
@@ -163,6 +177,265 @@ WindowManager:
 ################
 ################
 
+<EkstruderParametersWindow>
+    name: "ekstruderParameters"
+
+    GridLayout:
+        size_hint: .9, .98
+        pos_hint: {'center_x':.5, 'center_y':.5}
+        cols: 1
+        GridLayout:
+            cols: 1
+            GridLayout:
+                cols: 1
+                Label:
+                    text: "Parametri na Ekstruderu"
+
+                GridLayout:
+                    cols: 3
+                    Label:
+                        text: "Oprema:"
+                    Spinner:
+                        size_hint: .9, .98
+                        pos_hint: {'center_x':.5, 'center_y':.5}
+                        id: spinner_oprema
+                        text: "Izaberi opremu"
+                        values: ["APV", "ZSK43"]
+                        on_text: root.spinner_clicked(spinner_oprema.text)
+                    Spinner:
+                        id: spinner_sneke
+                        text: "Izaberi tip sneka"
+                        values: ["GL", "STR"]
+                        on_text: root.spinner_clicked(spinner_sneke.text)
+            GridLayout:
+                cols: 1
+                Button:
+                    text: "Skeniraj GP"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'center'
+                    on_release:
+                        root.btn_scan_parameters()
+                    #dodati kod za on_release
+                Label:
+                    id: sanned_label
+                    text: "Skeniraj GP!"
+        GridLayout:
+            cols: 1
+            GridLayout:
+                cols: 2
+                GridLayout:
+                    cols: 2
+                    Label:
+                        id: T1_label
+                        text: "T1:"
+                    TextInput:
+                        id: T1_input
+                        text: "100"
+
+                GridLayout:
+                    cols: 3
+                    Button:
+                        id: T1_minus
+                        text: "-"
+                        on_release:
+                            root.minus_clicked(T1_input.text, T1_label.text)
+
+                    Button:
+                        id: T1_plus
+                        text: "+"
+                        on_release:
+                            root.plus_clicked(T1_input.text, T1_label.text)
+
+                    Button:
+                        text: "x->y"
+                        on_release:
+                            root.x_to_y(T1_input.text)
+            GridLayout:
+                cols: 2
+                GridLayout:
+                    cols: 2
+                    Label:
+                        id: T2_label
+                        text: "T2:"
+                    TextInput:
+                        id: T2_input
+                        text: "100"
+
+                GridLayout:
+                    cols: 3
+                    Button:
+                        id: T2_minus
+                        text: "-"
+                        on_release:
+                            root.minus_clicked(T2_input.text, T2_label.text)
+
+                    Button:
+                        id: T2_plus
+                        text: "+"
+                        on_release:
+                            root.plus_clicked(T2_input.text, T2_label.text)
+
+                    Button:
+                        text: "x->y"
+                        on_release:
+                            root.x_to_y(T2_input.text)
+            GridLayout:
+                cols: 2
+                GridLayout:
+                    cols: 2
+                    Label:
+                        id: T3_label
+                        text: "T3:"
+                    TextInput:
+                        id: T3_input
+                        text: "100"
+
+                GridLayout:
+                    cols: 3
+                    Button:
+                        id: T3_minus
+                        text: "-"
+                        on_release:
+                            root.minus_clicked(T3_input.text, T3_label.text)
+                    Button:
+                        id: T3_plus
+                        text: "+"
+                        on_release:
+                            root.plus_clicked(T3_input.text, T3_label.text)
+                    Button:
+                        text: "x->y"
+                        on_release:
+                            root.x_to_y(T3_input.text)
+            GridLayout:
+                cols: 2
+                GridLayout:
+                    cols: 2
+                    Label:
+                        id: T4_label
+                        text: "T4:"
+                    TextInput:
+                        id: T4_input
+                        text: "100"
+
+                GridLayout:
+                    cols: 3
+                    Button:
+                        id: T4_minus
+                        text: "-"
+                        on_release:
+                            root.minus_clicked(T4_input.text, T4_label.text)
+
+                    Button:
+                        id: T4_plus
+                        text: "+"
+                        on_release:
+                            root.plus_clicked(T4_input.text, T4_label.text)
+
+                    Button:
+                        text: "x->y"
+                        on_release:
+                            root.x_to_y(T4_input.text)
+            GridLayout:
+                cols: 2
+                GridLayout:
+                    cols: 2
+                    Label:
+                        id: T5_label
+                        text: "T5:"
+                    TextInput:
+                        id: T5_input
+                        text: "100"
+
+                GridLayout:
+                    cols: 3
+                    Button:
+                        id: T5_minus
+                        text: "-"
+                        on_release:
+                            root.minus_clicked(T5_input.text, T5_label.text)
+
+                    Button:
+                        id: T5_plus
+                        text: "+"
+                        on_release:
+                            root.plus_clicked(T5_input.text, T5_label.text)
+
+                    Button:
+                        text: "x->y"
+                        on_release:
+                            root.x_to_y(T5_input.text)
+            GridLayout:
+                cols: 1
+                GridLayout:
+                    cols: 2
+                    GridLayout:
+                        cols: 2
+                        Label:
+                            text: "rpm:"
+                        TextInput:
+                            id: rpm_input
+                            text: ""
+
+                    GridLayout:
+                        cols: 3
+                        Label:
+                            text: "Torzija:"
+                        TextInput:
+                            id: torzija_min_input
+                            text: ""
+                        TextInput:
+                            id: torzija_max_input
+                            text: ""
+            GridLayout:
+                cols: 4
+                Label:
+                    text: "Doziranje:"
+                TextInput:
+                    id: doziranje_input
+                    text: ""
+                Label:
+                    text: "T premiksa:"
+                TextInput:
+                    id: T_premiksa_input
+                    text: ""
+            TextInput:
+                text: ""
+        GridLayout:
+            cols: 2
+            GridLayout:
+                cols: 1
+                TextInput:
+                    id: RadnikID_input
+                    text: "Unesi ID radnika"
+                Label:
+                    text: "nadimak"
+                    #napraviti kod da se menja nadimak na osnovu RadnikID
+            Button:
+                text: "Dodaj Merenje"
+                background_color: (0, 1, 0, 1) if (RadnikID_input.text!="Unesi ID radnika" and T_premiksa_input.text!="" and doziranje_input.text!="" and torzija_max_input.text!="" and torzija_min_input.text!="" and rpm_input.text!="" and sanned_label.text!="Skeniraj GP!" and spinner_oprema.text!="Izaberi opremu" and spinner_sneke.text!="Izaberi tip sneka") else (1, 0, 0, 1)
+                on_release:
+                    root.send_record_parameters() if(RadnikID_input.text!="Unesi ID radnika" and T_premiksa_input.text!="" and doziranje_input.text!="" and torzija_max_input.text!="" and torzija_min_input.text!="" and rpm_input.text!="" and sanned_label.text!="Skeniraj GP!" and spinner_oprema.text!="Izaberi opremu" and spinner_sneke.text != "Izaberi tip sneka") else None
+
+
+
+
+            Button:
+                text: "Nazad Na Glavni Meni"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Nazad Na Zonu Ekstrudiranja"
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "ekstrudiranje"
+                    root.manager.transition.direction = "right"
 
 <EkstruderAktivnostiWindow>:
     activity: activity
